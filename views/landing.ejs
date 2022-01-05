@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+<link rel="stylesheet" href="style.css"> 
+<body onload="loading()">
+  <body onload="loading()">
+    <div id="loading"></div>
+<% include partials/header %>
+    <!--The div element for the map -->
+    <div id="map"></div>
+
+    <div class="index-buttons">
+        <div class="container container-buttons">
+            <a href="/founditemlist"><button class="btn btn-danger">Search Job</button></a>
+            <a href="/foundform"><button class="btn btn-success">Post A Job</button></a>
+        </div>
+    </div>
+
+    <script>
+        // Initialize and add the map
+        function initMap() {
+        // The location 
+        var jims = {lat: 28.71886570241022, lng: 77.10868656635286};
+        // The map
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 21, center: jims});
+        // The marker
+        var marker = new google.maps.Marker({position: jims, map: map});
+        }
+    </script>
+  
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzUMwQ4xjTxand599i83W5nmm1LnOs4bE&callback=initMap">
+  </script>
+            <div class="bg-warning">       
+                <% include ./partials/footer.ejs %></div>  
+                <script>
+                  var preloader = document.getElementById('loading'); 
+                  function loading() {
+                    preloader.style.display ='none';
+                  }
+                </script>
+                </body>

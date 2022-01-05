@@ -1,0 +1,41 @@
+{
+  "name": "spt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "express": "^4.17.2",
+    "express-session": "^1.17.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.1.4",
+    "node": "^17.3.0",
+    "node-gyp": "^8.4.1",
+    "nodemon": "^2.0.15",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.1.0",
+    "redirect": "^0.2.0",
+    "ssh2": "^1.5.0",
+    "alert": "^5.0.10",
+    "dotenv": "^10.0.0",
+    "ejs": "^2.7.4",
+    "express-sanitizer": "^1.0.6",
+    "flash": "^1.1.0",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "node-fetch": "^3.1.0",
+    "node-geocoder": "^3.27.0",
+    "popups": "^1.1.3",
+    "razorpay": "^2.8.0",
+    "requests": "^0.3.0",
+    "sweetalert": "^2.1.2",
+    "uniq": "^1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

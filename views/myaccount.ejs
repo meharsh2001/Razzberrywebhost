@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Account Settings -Razzberry</title>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+	<link rel="stylesheet" type="text/css" href="myaccount.css">
+</head>
+<link rel="stylesheet" href="style.css"> 
+<body onload="loading()">
+	<div id="loading"></div>
+	<section class="">
+
+		<div class="container" >
+			<h2 class="mb-5">My profile</h2>		<!--
+			<div style="text-align: center" class="alert alert-<%=type%>">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong><%=intro%></strong>  <%=message%>
+			  </div>-->
+			<div class="bg-white shadow rounded-lg d-block d-sm-flex">
+				<div class="profile-tab-nav border-right">
+					<div class="p-4">
+						<div class="img-circle text-center mb-3">
+							<img src="img.jpg" alt="Image" class="shadow"style="background-color: white;">
+						</div>
+						<h4 class="text-center"><%=currentUser.username%></h4>
+					</div>
+					<div class="nav flex-column nav-pills" style="background-color: black" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+						<a class="nav-link" id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="true">
+							<i class="fa fa-home text-center mr-1"></i>Account</a>
+
+						<a class="nav-link disabled" id="password-tab" data-toggle="pill" href="#" role="tab" aria-controls="password" aria-selected="false">
+							<i class="fa fa-key text-center mr-1"></i>Password</a>
+
+						<a class="nav-link" id="security-tab" data-toggle="pill" href="#security" role="tab" aria-controls="security" aria-selected="false">
+								<i class="fas fa-user-minus"></i> Delete Account</a>
+
+						<a class="nav-link" id="admin-tab" data-toggle="pill" href="#admin" role="tab" aria-controls="admin" aria-selected="false">
+							<i class="fa fa-user text-center mr-1"></i>Admin Only </a>
+
+						<a class="nav-link disabled" id="notification-tab" data-toggle="pill" href="#notification" role="tab" aria-controls="notification" aria-selected="false">
+							<i class="fa fa-bell text-center mr-1"></i>Notification</a>
+							
+					</div>
+				</div>
+				<div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
+					<div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
+						<h3 class="mb-4">Account Settings</h3>
+						<form action="/myaccount" method="POST">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>First Name</label>
+								  	<input type="text" class="form-control" name="name" value="<%=currentUser.firstname%>"  disabled="disabled"><h6 style="color: red;">*you can not change this</h6></input>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Last Name</label>
+								  	<input type="text" class="form-control" name="lastname" value="<%=currentUser.lastname%>">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Username</label>
+									  <input type="text" class="form-control" value="<%=currentUser.username%>" disabled="disabled"><h6 style="color: red;">*you can not change this</h6></input>
+								</div>
+									  
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Phone number</label>
+									  <input type="number" class="form-control" name="number" value="+91 <%=currentUser.number%>" required="required">  <h6>current number: +91 <%=currentUser.number%></h6></input>
+									</div>
+								  	
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Birthday</label>
+								  	<input class="form-control" type="date" name="dob" value="<%=currentUser.dob%>" id="example-date-input" required="required">
+									
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>One Time Payment</label>
+								  	<input type="text" class="form-control" value="<%=currentUser.paid%>" disabled="disabled"><h6 style="color: red;">*you can not change this</h6></input>
+								
+									<label>Gender</label><div class="form-group"><label >male</label>
+									  <input type="radio"  name="gender" value="male" />
+									  <label >female</label><input type="radio"  name="gender" value="female" /></div>
+							  </div>
+							</div>
+							</div>
+						<div>
+							<button class="btn btn-light">Update Info</button>
+							<a href="/" class="btn btn-dark">Home</a>
+							<a href="/logout" class="btn btn-light">logout</a>
+							<a href="/checkout" class="btn btn-dark fas fa-donate"> Upgrade</a>
+						</div></form>
+					</div>
+					<div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
+						<h3 class="mb-4">Password Settings</h3>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Old password</label>
+								  	<input type="password" class="form-control">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>New password</label>
+								  	<input type="password" class="form-control">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Confirm new password</label>
+								  	<input type="password" class="form-control">
+								</div>
+							</div>
+						</div>
+						<div>
+							<a href="/" class="btn btn-dark">Home</a>
+							<a href="/logout" class="btn btn-light">logout</a>
+						</div>
+					</div>
+
+
+					<div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="admin-tab">
+						<h3 class="mb-4">Admin Only</h3>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Username</label>
+								  	<input type="text" class="form-control" value="<%=currentUser.username%> " disabled="disabled"><h6 style="color: red;">*you can not change this</h6></input>
+									</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Admin Access</label>
+								  	<input type="text" class="form-control" value="<%=currentUser.isAdmin%>" disabled="disabled"><h6 style="color: red;">*you can not change this</h6></input>
+								</div>
+							</div>
+
+						</div>
+						<div>
+							<a href="/admin" class="btn btn-dark">Access</a>
+							<a href="/logout" class="btn btn-light">logout</a>
+						</div>
+					</div>
+
+
+
+					<div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
+						<h3 class="mb-4">DELETE ACCOUNT</h3>
+						<form action="/deleteuser" method="POST"></form>
+							<h6 style="color: red;">*you can undo this If you want to leave go to home</h6>
+						<div><br><br><br><br><br>
+							<form style="text-align: center;">
+								<a href="/myaccount/deleteuser/id86594949684511491494694549648" class="btn btn-light bg-warning">DELETE ACCOUNT</a><br>
+								<a href="/" class="btn btn-dark">Home</a><br>
+								<a href="/logout" class="btn btn-light">logout</a><br>
+								<a href="/checkout" class="btn btn-dark fas fa-donate"> Upgrade</a>	<br></form>
+							
+							
+							<br><br><br><br><br>
+						</div>
+					<!--here-->
+				</div>
+			</div>
+		</div>		<br><br>
+	</section>
+
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<div class="bg-warning">  
+		<% include ./partials/footer.ejs %></div>  
+<script>
+  var preloader = document.getElementById('loading'); 
+  function loading() {
+    preloader.style.display ='none';
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Razzberry</title>
+   
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"> 
+    <link rel="stylesheet" href="main.css" type="text/css">
+    <link rel="stylesheet" href="style.css">
+    <!-- <script  type="text/javascript" src="main.js"></script> -->
+
+  </head>
+  <body onload="loading()"style="background-color: teal;">
+    <div id="loading"></div>
+<div ><div class="row">
+    <div class="container">
+        <div class="topPart">
+            <div class="searchbar">
+                <form class="navbar-form" role="search">
+                    <div class="input-group add-on">
+                    <h2>Feedbacks</h2>
+                    <div class="input-group-btn">
+                    </div>
+                    </div>
+            </div>
+        </div>
+    <div class="table-item-lost">
+        <table class="table table-hover">
+            <thead>
+                <tr> <%feedbacktable.forEach(feedback=>{%>
+                    <td><h4>Reviewed By:</h4><p><%=feedback.name%></p></td>
+                    <td><h4>Username:</h4><p><%=feedback.username%></p></td>
+                    <td><h4>Feedback:</h4><p><%=feedback.message%>.</p></td>
+                </tr><%})%>    
+            </thead>
+                <tbody>
+                    
+                           <tr>
+
+
+                        </tr>
+                </tbody>
+        </table>
+    </div>
+     </div>
+     <div class="footer-copyright text-center py-3">© Created By:
+        <a target="_blank" href="https://www.instagram.com/m_harsh_hj/"> Harsh Jain</a>
+        <div class="footer-copyright text-center py-3"><a target="_blank" href="/">Go Back Home</a>
+          </div>
+      </div>
+    <script>
+  var preloader = document.getElementById('loading'); 
+  function loading() {
+    preloader.style.display ='none';
+  }
+</script>
+</body>
+    </html>
+    

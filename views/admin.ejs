@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Account Settings -Razzberry</title>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+	<link rel="stylesheet" type="text/css" href="myaccount.css">
+</head>
+<link rel="stylesheet" href="style.css"> 
+<body onload="loading()">
+	<div id="loading"></div>
+	
+	<section class="">
+		<div class="container" >
+			<h2 class="mb-5">Admin Tab</h2>
+
+			<div class="bg-white shadow rounded-lg d-block d-sm-flex">
+				<div class="profile-tab-nav border-right">
+					<div class="p-4">
+						<div class="img-circle text-center mb-3">
+							<img src="img.jpg" alt="Image" class="shadow"style="background-color: white;">
+						</div>
+						<h4 class="text-center"><%=currentUser.username%></h4>
+					</div>
+					<div class="nav flex-column nav-pills" style="background-color: black" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            
+						<a class="nav-link active" id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="true">
+							<i class="fa fa-home text-center mr-1"></i>Search User</a>
+
+						<a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
+							<i class="fa fa-key text-center mr-1"></i>Database</a>
+
+						<a class="nav-link" id="security-tab" data-toggle="pill" href="#security" role="tab" aria-controls="security" aria-selected="false">
+								<i class="fas fa-user-minus"></i> Report User Payment</a>
+
+						<a class="nav-link" id="makeadmin-tab" data-toggle="pill" href="#makeadmin" role="tab" aria-controls="makeadmin" aria-selected="true">
+							<i class="fa fa-user text-center mr-1"></i>Make Admin</a>
+
+						<a class="nav-link" id="notification-tab" data-toggle="pill" href="#notification" role="tab" aria-controls="notification" aria-selected="false">
+							<i class="fa fa-bell text-center mr-1"></i>Job Results</a>
+							
+					</div>
+				</div>
+
+				<div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
+					<div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
+						<h3 class="mb-4">Account Details</h3>
+						<h6 style="color: red;">*you can not change this</h6>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>First Name</label>
+								  	<input type="text" class="form-control" name="name" value="<%=currentUser.firstname%>"  disabled="disabled"></input>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Last Name</label>
+								  	<input type="text" class="form-control" name="lastname" value="<%=currentUser.lastname%>"disabled="disabled">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Username</label>
+									  <input type="text" class="form-control" value="<%=currentUser.username%>" disabled="disabled"></input>
+								</div>
+									  
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Phone number</label>
+									  <input type="text" class="form-control" name="number" value="+91 <%=currentUser.number%>" disabled="disabled"></input>
+									</div>
+								  	
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Birthday</label>
+								  	<input class="form-control" type="date" name="dob" value="<%=currentUser.dob%>" id="example-date-input" disabled="disabled">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Gender</label>
+									<input class="form-control" type="test" name="gender" value="<%=currentUser.gender%>" id="example-date-input" disabled="disabled">
+							  </div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Admin Access</label>
+								  	<input class="form-control" type="text" name="dob" value="<%=currentUser.isAdmin%>" id="example-date-input" disabled="disabled">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Payment</label>
+									<input class="form-control" type="test" name="gender" value="<%=currentUser.paid%>" id="example-date-input" disabled="disabled">
+							  </div>
+							</div>
+							</div>
+						<div>
+							<button class="btn btn-light">Update Info</button>
+							<a href="/" class="btn btn-dark">Home</a>
+							<a href="/logout" class="btn btn-light">logout</a>
+							<a href="/checkout" class="btn btn-dark fas fa-donate"> Upgrade</a>
+						</div></form>
+					</div>
+
+
+					<div class="tab-pane fade active" id="password" role="tabpanel" aria-labelledby="password-tab">
+						<h3 class="mb-4">Database Settings</h3>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Logged In As</label>
+								  	<input type="text" class="form-control" value="<%=currentUser.username%> " disabled="disabled">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group"><!--
+								  	<label>New password</label>
+								  	<input type="password" class="form-control">-->
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group"><!--
+								  	<label>Confirm new password</label>
+								  	<input type="password" class="form-control">-->
+								</div>
+							</div>
+						</div>
+						<div>
+							<a href="https://account.mongodb.com/account/login?n=%2Fv2%2F6188fa0686a8fd4607114294&nextHash=%23metrics%2FreplicaSet%2F6188fafe7d68662c87031198%2Fexplorer%2FMissingX%2Fusers%2Ffind" target="_blank" class="btn btn-dark">Access Database</a>
+							<a href="/" class="btn btn-light">Home</a>
+						</div>
+					</div>
+
+
+					<div class="tab-pane fade" id="makeadmin" role="tabpanel" aria-labelledby="makeadmin-tab">
+						<h3 class="mb-4">Make Someone Admin</h3>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Logged In As</label>	
+								  	<input type="text" class="form-control" value="<%=currentUser.username%> " disabled="disabled"><h6 style="color: red;">*you can not change this</h6></input>
+                    				<input type="text" class="form-control" value="<%=currentUser.isAdmin%>" disabled="disabled"><h6 style="color: red;">*you can not change this</h6></input>
+                 			 </div>
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label style="color: red;">Admin Access</label>
+									  
+						<form action="/adminmakeadmin" method="POST">
+								  	<input type="text" class="form-control" value="<%=currentUser.username%>" name="inputtag" ></input>
+									  <label style="color: red;">	  admin change type true/false </label>
+								  <input type="text" class="form-control" value="" name="inputtagg"></input> 
+								  
+								</div>
+							</div>
+						</div>
+						available users <br>
+						<%alluserlist.forEach(alluser=>{%>
+							<%=alluser.username%>
+							<%})%>
+						<div>
+							<a href="#"><button onclick="myfunc()" class="btn btn-dark">Submit</button></a>
+						</form>
+							<a href="/logout" class="btn btn-light">logout</a>
+						</div>
+					</div>
+
+					
+					<div class="tab-pane fade" id="notification" role="tabpanel" aria-labelledby="notification-tab">
+						<h3 class="mb-4">Job Posting Results</h3>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Username</label>
+								  	<input type="text" class="form-control" value="<%=currentUser.username%> " disabled="disabled"><h6 style="color: red;">*you can not change this</h6></input>
+									</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Admin Access</label>
+								  	<input type="text" class="form-control" value="<%=currentUser.isAdmin%>" disabled="disabled"><h6 style="color: red;">*you can not change this</h6></input>
+								</div>
+							</div>
+
+						</div>
+						<div>
+							<a href="/contactus/reportstatus" class="btn btn-dark">Access</a>
+							<a href="/logout" class="btn btn-light">logout</a>
+						</div>
+					</div>
+
+					<div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
+						<h3 class="mb-4">Report A Payment</h3>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Logged In As</label>	
+								  	<input type="text" class="form-control" value="<%=currentUser.username%> " disabled="disabled"><h6 style="color: red;">*you can not change this</h6></input>
+                    				<input type="text" class="form-control" value="<%=currentUser.isAdmin%>" disabled="disabled"><h6 style="color: red;">*you can not change this</h6></input>
+                 			 </div>
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label style="color: red;">Username</label>
+									  
+						<form action="/adminaccount" method="POST">
+								  	<input type="text" class="form-control" value="<%=currentUser.username%>" name="outputtag" ></input>
+									  <label style="color: red;">	  payment change type true/false </label>
+								  <input type="text" class="form-control" value="" name="outputtagg"></input> 
+								  
+								</div>
+							</div>
+						</div>
+						<div>
+							<a href="#"><button onclick="myfunc()" class="btn btn-dark">Submit</button></a>
+						</form>
+							<a href="/logout" class="btn btn-light">logout</a>
+						</div>
+					</div>
+
+					<!--here-->
+				</div>
+			</div>
+		</div>		<br><br>
+	</section>
+
+
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<div class="bg-warning">  
+		<% include ./partials/footer.ejs %></div>  
+<script>
+  var preloader = document.getElementById('loading'); 
+  function loading() {
+    preloader.style.display ='none';
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Razzberry</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+   </head>
+
+   <style>
+    .fullscreen-bg {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        overflow: hidden;
+        z-index: -100;
+    }
+    
+    .fullscreen-bg__video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+       
+    }
+    </style>
+
+
+
+   <body onload="loading()">
+    <div id="loading"></div>
+  <% include ./partials/header.ejs %>
+  <div class="fullscreen-bg" style="color: black;">
+    <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
+        <source src="img5.mp4" type="video/mp4">
+    </video></div>
+
+    <div class="center">
+        <div class="btns">
+          <a href="/founditemlist" style="background-color: goldenrod;">Apply For <i class="fas fa-plus-circle"></i>  Job</a>
+          <div><br></div>
+
+          <a href="/founditemlist" style="background-color:rgb(177, 162, 25);">Job Postings</a>
+        </div><br>  
+
+        <div class="title"><i class="fab fa-r-project"></i> Razzberry</div>
+
+     <div style="color: black;">
+    <% include ./partials/footer.ejs %></div>>
+
+        <div class="bottom btns" >
+            <div class="container container-buttons">
+                <a href="/foundform" style="background-color:rgb(177, 162, 25);">Post A Job!</a>
+            </div>
+        </div>
+
+            <div class="btns">
+                <% if (!currentUser) {%>
+        <a href="/login" style="background-color: goldenrod;">Account Login</a>
+        <% } else {%>
+            <a href="/myaccount" style="background-color: goldenrod;">Welcome: <%=currentUser.username%></a>
+            <%}%>   
+        </div>
+
+
+
+<script>
+  var preloader = document.getElementById('loading'); 
+  function loading() {
+    preloader.style.display ='none';
+  }
+</script>
+</body>
+</html>

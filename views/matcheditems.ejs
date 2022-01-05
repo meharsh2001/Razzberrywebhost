@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css">
+    <style>
+            /* Set the size of the div element that contains the map */
+           
+            
+            .navbar-inverse{
+                padding:0;
+                margin:0;
+            }
+            body{
+                font-family: 'Roboto', sans-serif;
+            }
+            
+            
+     
+         </style>
+    <!-- <style rel="stylesheet" type="text/css" href="assets/css/main.css"></style>-->
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+
+  </head>
+  <body onload="loading()">
+    <div id="loading"></div>
+    <script>
+      var preloader = document.getElementById('loading'); 
+      function loading() {
+        preloader.style.display ='none';
+      }
+    </script>
+    <% include partials/header %>
+    <div class="img4">    <div class="row">
+        <div class="container">
+            <div class="topPart">
+                <div class="searchbar">
+                </div>
+            </div>
+        <div class="table-item-lost">
+            <table class="table table-hover">
+                <thead> <h2> Items Matched</h2>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Username</th>
+                        <th>Founded By</th>
+                        <th>Founded On</th>
+                        <th>location</th>
+                        <th>verified</th>
+                        <th>View Details</th>
+                    </tr>
+                </thead>
+                    <tbody><%claimslist.forEach(claim=>{%>
+                        <td>    <p><%=claim.name%></p>    </td>
+                        <td>    <p><%=claim.username%></p></td>
+                        <td>    <p><%=claim.founder%></p> </td>
+                        <td>    <p><%=claim.date%></p>    </td>                            
+                        <td>    <p><%=claim.location%></p></td>
+                        <td>    <p><%=claim.verify%></p></td>
+                                <td class="dynamicWidth">
+                                   <a> <button>Post A Request</button></a>
+                                </td>
+                    </tbody><%})%>
+            </table>
+        </div>
+    </div><br>
+    </div>            <div class="bg-warning">       
+        <% include ./partials/footer.ejs %></div>  
+        <a href="/contactus"><br><li  class=" btn btn-default col-xs-1 col-sm-1 col-md-1 col-lg-1"><i class="fa fa-backward" aria-hidden="true">Go Back</i></li></a>           
+        <a href="/contactus/reportstatus/api" >  <li class="btn btn-default btn-light col-xs-1 col-sm-1 col-md-1 col-lg-1">Inprocess Items</a></div>
+        <script>
+            var preloader = document.getElementById('loading'); 
+            function loading() {
+              preloader.style.display ='none';
+            }
+          </script>
+          </body>
+</html>

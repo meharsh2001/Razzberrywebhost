@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Razzberry</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+   </head>
+   <body onload="loading()">
+    <div id="loading"></div>
+  <% include ./partials/header.ejs %>
+  <div class="img5" style="color: black;">
+
+    <div class="container centertopage">
+      <h2>Apply For Job:</h2>
+      <h4>Submit Product Details**</h5>
+      <!-- Form starts --><%searchlist.forEach(search=>{%>
+      <form id="contact-form" method="post" action="" role="form">
+
+          <div class="messages"></div>
+      
+          <div class="controls">
+              <div class="row">
+                  
+                  <div class="col-md-6">
+
+                      <div class="form-group">
+                          <label for="form_name">Job Title *</label>
+                          <input id="form_name" type="text" name="name" class="form-control" placeholder="Please Enter Your Item Name *" readonly value="<%=search.item%>">
+                          <div class="help-block with-errors"></div>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label for="form_lastname">Posted By*</label>
+                          <input required id="form_lastname" type="text" name="founder" class="form-control" placeholder="Please Enter Founder Name *" readonly value="<%=search.name%>">
+                          <div class="help-block with-errors"></div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row">
+                      <div class="col-md-4">
+                          <div class="form-group">
+
+                            <label for="location">Location</label>
+                            <input class="form-control" type= "text" name="location" id="location" readonly value="<%=search.location%>">
+                              </div>
+                          </div>
+                      </div>
+ 
+                      <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+    
+                              <label for="location">Company Name</label>
+                              <input class="form-control" type= "text" name="date" id="location" readonly value="<%=search.care%>">
+                                </div>
+                            </div>
+                        </div>                
+                      <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="form_message">Specifications of the Job *</label>
+                                <textarea id="form_message" name="specifications" class="form-control" readonly placeholder="Specifications of the Job *" rows="2" required="required" data-error="Please, leave us a message."><%=search.specifications%></textarea>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                  <br><label>Resume**</label><input type="file">
+
+                 <div class="form-group">
+                     
+                      <label for="form_isLost">I Want To Apply</label>
+                      <input type="checkbox" id="form_isLost" name="verify" value="true" required />
+                  </div>
+                  
+                  <div class="row" >
+                      <div class="col-md-12">
+                          <p class="text-muted" style="color: red;">
+                              <strong>*</strong> These fields are required. We will do our best to find your item.
+                          </p>
+                      </div>
+                  </div>
+                  <%})%> <div class="col-md-12" align="right">
+                      <a href="/items"><br><li  class=" btn btn-default col-xs-1 col-sm-1 col-md-1 col-lg-1"><i class="fa fa-backward" aria-hidden="true"></i></li></a>           
+                      <button type="submit" class="btn btn-success btn-send" value="Add Query">Submit</button>
+                     
+                  </div><br>
+                   
+              </div>
+              
+              
+          </div>
+      
+      </form>
+  </div>
+
+
+  </div>
+  <div class="bg-warning">       
+    <% include ./partials/footer.ejs %></div>  
+<script>
+  var preloader = document.getElementById('loading'); 
+  function loading() {
+    preloader.style.display ='none';
+  }
+</script>
+</body>
+</html>

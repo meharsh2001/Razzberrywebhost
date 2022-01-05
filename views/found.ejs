@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"> 
+    <style>
+            /* Set the size of the div element that contains the map */
+           
+            
+            .navbar-inverse{
+                padding:0;
+                margin:0;
+            }
+            body{
+                font-family: 'Roboto', sans-serif;
+            }
+            
+            
+     
+         </style>
+    <!-- <style rel="stylesheet" type="text/css" href="assets/css/main.css"></style>-->
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="lostForm.css" />
+
+  </head>
+  <body onload="loading()">
+    <div id="loading"></div>
+    <% include partials/header %>
+        <div class="container centertopage">
+            <h2>Post A Job</h2>
+            <h5>Please let us know the details:</h5>
+        
+        <!-- Form starts -->
+        <form id="contact-form" method="post" action="" role="form">
+
+            <div class="messages"></div>
+        
+            <div class="controls">
+                <div class="row">
+                    
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <label for="form_name">Job Title*</label>
+                            <input id="form_name" type="text" name="item" class="form-control" placeholder="Please enter your item name *" required="required" data-error="Item name is required.">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="form_lastname">User Name *</label>
+                            <input required id="form_lastname" type="text" name="name" value="<%=currentUser.username%>" class="form-control" placeholder="Please enter Owner Name *" readonly data-error="Location is required.">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                </div>
+                  
+                    <div class="form-group">
+                        <label for="location">location</label>
+                        <input class="form-control" type="text" name="location" id="location" placeholder="Location">
+                    </div>
+                    <br>
+                    
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="form_message">Specifications of the Job *</label>
+                            <textarea id="form_message" name="specifications" class="form-control" placeholder="Specifications of the Job *" rows="4" required="required" data-error="Please, leave us a message."></textarea>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="form_isLost">Company name</label>
+                        <input type="text" id="form_isLost" name="gender" placeholder="Company name" required="required"/>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="text-muted">
+                                <strong>*</strong> These fields are required. We will do our best to find your item.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12" align="right">
+                        <a href="/map"><br><li  class=" btn btn-default col-xs-1 col-sm-1 col-md-1 col-lg-1"><i class="fa fa-backward" aria-hidden="true"></i></li></a>           
+                        <button type="submit" class="btn btn-success btn-send" value="Add Query">Add Query</button>
+                       
+                    </div><br>
+                     
+                </div>
+                
+                
+            </div>
+        
+        </form>
+    </div><br>  
+              <div class="bg-warning">       
+        <% include ./partials/footer.ejs %></div>  
+<script>
+  var preloader = document.getElementById('loading'); 
+  function loading() {
+    preloader.style.display ='none';
+  }
+</script>
+</body>
+</html>
